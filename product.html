@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        <button class="icon-btn" aria-label="Wishlist">♡</button>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">2</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="index.html">Home</a> > <a href="shop.html">Shop</a> > <span id="productCategory">Loading...</span> > <span id="productName">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Product Detail -->
+  <div class="container">
+    <div class="product-detail" id="productDetail">
+      <!-- Product content will be loaded here -->
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <section class="related-products">
+    <div class="container">
+      <h2>Related Products</h2>
+      <div class="products-grid" id="relatedProducts">
+        <!-- Related products will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <script src="api.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slim Fit Denim Jeans — Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">0</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > <a href="shop.html">Shop</a> > <span>Slim Fit Denim Jeans</span>
+    </div>
+  </div>
+
+  <!-- Product Detail -->
+  <div class="product-detail">
+    <div class="container">
+      <div class="product-detail-grid">
+        <!-- Product Images -->
+        <div class="product-images">
+          <div class="main-image">
+            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600" alt="Slim Fit Denim Jeans" id="mainImage">
+            <div class="product-badge">New</div>
+          </div>
+          <div class="thumbnail-images">
+            <div class="thumbnail active">
+              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=150" alt="Front View">
+            </div>
+            <div class="thumbnail">
+              <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=150" alt="Back View">
+            </div>
+            <div class="thumbnail">
+              <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=150" alt="Side View">
+            </div>
+            <div class="thumbnail">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=150" alt="Detail View">
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <p class="product-brand">Urban Denim Co.</p>
+          <h1 class="product-title">Slim Fit Denim Jeans</h1>
+          
+          <div class="product-rating">
+            <div class="stars">★★★★★</div>
+            <span class="rating-text">4.8 out of 5 (256 reviews)</span>
+          </div>
+
+          <div class="product-price">
+            <span class="current-price">₦35,600</span>
+          </div>
+
+          <p class="product-description">
+            Premium slim fit denim jeans crafted from high-quality cotton blend. Features a modern tapered cut 
+            that's comfortable yet stylish. Perfect for both casual and smart-casual occasions with excellent 
+            stretch and recovery for all-day comfort.
+          </p>
+
+          <!-- Seller Information -->
+          <div class="seller-info">
+            <h4>Sold by Urban Denim Co.</h4>
+            <div class="seller-rating">
+              <div class="stars">★★★★★</div>
+              <span>4.9 seller rating (1,847 reviews)</span>
+            </div>
+            <p class="seller-description">Urban Denim Co. specializes in premium denim wear with a focus on quality, comfort, and contemporary style. Founded in 2015, they're known for their innovative fits and sustainable practices.</p>
+            <div class="seller-stats">
+              <div class="stat-item">
+                <strong>99%</strong>
+                <span>Positive feedback</span>
+              </div>
+              <div class="stat-item">
+                <strong>12h</strong>
+                <span>Avg. response time</span>
+              </div>
+              <div class="stat-item">
+                <strong>100%</strong>
+                <span>On-time delivery</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Actions -->
+          <div class="product-actions">
+            <button class="add-to-cart-btn" onclick="openSizeColorModal()">
+              Add to Cart - ₦35,600
+            </button>
+            <button class="view-shop-btn" onclick="viewSellerShop()">
+              View Seller Shop
+            </button>
+            <p class="stock-info">✓ In Stock - Ready to ship</p>
+          </div>
+
+          <!-- Shipping Info -->
+          <div class="shipping-info">
+            <div class="shipping-item">🚚 Free shipping on orders over ₦80,000</div>
+            <div class="shipping-item">📦 Express delivery available</div>
+            <div class="shipping-item">↩️ 30-day return policy</div>
+            <div class="shipping-item">🔒 Secure payment guaranteed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Tabs -->
+      <div class="product-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="description">Description</button>
+          <button class="tab-btn" data-tab="specifications">Specifications</button>
+          <button class="tab-btn" data-tab="reviews">Reviews (256)</button>
+          <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+        </div>
+
+        <div class="tab-panel active" id="description">
+          <h3>Product Description</h3>
+          <p>Our Slim Fit Denim Jeans combine classic style with modern comfort. Made from premium cotton-elastane blend, these jeans offer the perfect balance of structure and stretch. The slim fit silhouette flatters all body types while providing freedom of movement.</p>
+          
+          <h4>Key Features:</h4>
+          <ul>
+            <li>98% Cotton, 2% Elastane for comfort and stretch</li>
+            <li>Slim fit with tapered leg opening</li>
+            <li>Five-pocket classic styling</li>
+            <li>Button fly closure</li>
+            <li>Pre-washed for softness</li>
+            <li>Available in multiple washes and sizes</li>
+          </ul>
+
+          <h4>Care Instructions:</h4>
+          <ul>
+            <li>Machine wash cold inside out</li>
+            <li>Tumble dry low or hang dry</li>
+            <li>Do not bleach</li>
+            <li>Iron on medium heat if needed</li>
+          </ul>
+        </div>
+
+        <div class="tab-panel" id="specifications">
+          <h3>Specifications</h3>
+          <table class="specs-table">
+            <tr>
+              <td>Material</td>
+              <td>98% Cotton, 2% Elastane</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td>12 oz Denim</td>
+            </tr>
+            <tr>
+              <td>Fit</td>
+              <td>Slim Fit</td>
+            </tr>
+            <tr>
+              <td>Rise</td>
+              <td>Mid Rise</td>
+            </tr>
+            <tr>
+              <td>Leg Opening</td>
+              <td>Tapered</td>
+            </tr>
+            <tr>
+              <td>Country of Origin</td>
+              <td>Nigeria</td>
+            </tr>
+            <tr>
+              <td>Brand</td>
+              <td>Urban Denim Co.</td>
+            </tr>
+            <tr>
+              <td>SKU</td>
+              <td>UDC-SF-002</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tab-panel" id="reviews">
+          <h3>Customer Reviews</h3>
+          <div class="reviews-summary">
+            <div class="rating-overview">
+              <div class="big-rating">4.8</div>
+              <div>
+                <div class="stars">★★★★★</div>
+                <p>Based on 256 reviews</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <strong>James O.</strong>
+              <div class="stars">★★★★★</div>
+              <span class="review-date">1 day ago</span>
+            </div>
+            <p>"Perfect fit! These jeans are incredibly comfortable and look great. The quality is excellent for the price."</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <strong>Adaora K.</strong>
+              <div class="stars">★★★★★</div>
+              <span class="review-date">3 days ago</span>
+            </div>
+            <p>"Love the slim fit and the stretch. Very comfortable for all-day wear. Highly recommend!"</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <strong>David M.</strong>
+              <div class="stars">★★★★☆</div>
+              <span class="review-date">1 week ago</span>
+            </div>
+            <p>"Good quality jeans. Fit is true to size. The dark blue wash is exactly what I was looking for."</p>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="shipping">
+          <h3>Shipping & Returns</h3>
+          
+          <h4>Shipping Information</h4>
+          <ul>
+            <li><strong>Standard Delivery:</strong> 3-5 business days (₦2,500)</li>
+            <li><strong>Express Delivery:</strong> 1-2 business days (₦5,000)</li>
+            <li><strong>Free Shipping:</strong> On orders over ₦80,000</li>
+            <li><strong>Same Day Delivery:</strong> Available in Lagos (₦8,000)</li>
+          </ul>
+
+          <h4>Return Policy</h4>
+          <ul>
+            <li>30-day return window from delivery date</li>
+            <li>Items must be unworn with original tags</li>
+            <li>Free returns for defective items</li>
+            <li>Return shipping fee: ₦2,000 (deducted from refund)</li>
+          </ul>
+
+          <h4>Exchange Policy</h4>
+          <ul>
+            <li>Size exchanges available within 30 days</li>
+            <li>Color exchanges subject to availability</li>
+            <li>One free exchange per order</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <section class="related-products">
+    <div class="container">
+      <h2>You Might Also Like</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" alt="Classic White T-Shirt">
+          </div>
+          <div class="product-info">
+            <div class="product-brand">Premium Basics</div>
+            <h3 class="product-name">Classic White T-Shirt</h3>
+            <div class="product-rating">
+              <div class="stars">★★★★☆</div>
+              <span class="rating-count">4.5 (128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">₦18,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400" alt="Chino Pants">
+          </div>
+          <div class="product-info">
+            <div class="product-brand">Smart Casual</div>
+            <h3 class="product-name">Chino Pants</h3>
+            <div class="product-rating">
+              <div class="stars">★★★★☆</div>
+              <span class="rating-count">4.0 (21)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">₦42,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400" alt="Cotton Hoodie">
+          </div>
+          <div class="product-info">
+            <div class="product-brand">Comfort Zone</div>
+            <h3 class="product-name">Cotton Hoodie</h3>
+            <div class="product-rating">
+              <div class="stars">★★★★☆</div>
+              <span class="rating-count">4.1 (33)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">₦38,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Best Market Place</h4>
+        <p>Your ultimate destination for the best clothing brands. Shop the latest fashion trends from trusted brands all in one place.</p>
+        <div class="social">
+          <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Customer Service</h5>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <small>© 2025 Best Market Place. All rights reserved.</small>
+      <nav class="legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Load cart count on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCartCount();
+    });
+
+    // Thumbnail image switching
+    document.querySelectorAll('.thumbnail').forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        document.querySelector('.thumbnail.active').classList.remove('active');
+        this.classList.add('active');
+        document.getElementById('mainImage').src = this.querySelector('img').src.replace('w=150', 'w=600');
+      });
+    });
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelector('.tab-btn.active').classList.remove('active');
+        document.querySelector('.tab-panel.active').classList.remove('active');
+        
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Open size and color selection modal
+    function openSizeColorModal() {
+      const modalHTML = `
+        <div class="product-modal" id="sizeColorModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Select Size & Color</h3>
+              <button class="modal-close" onclick="closeSizeColorModal()">✕</button>
+            </div>
+            <div class="modal-body">
+              <div class="product-preview">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=80&h=80&fit=crop" alt="Slim Fit Denim Jeans">
+                <div class="product-info">
+                  <p>Urban Denim Co.</p>
+                  <p>₦35,600</p>
+                </div>
+              </div>
+              
+              <div class="selection-group">
+                <label>Size:</label>
+                <div class="size-options" id="modalSizeOptions">
+                  <button class="size-btn" onclick="selectSize('28')">28</button>
+                  <button class="size-btn" onclick="selectSize('30')">30</button>
+                  <button class="size-btn" onclick="selectSize('32')">32</button>
+                  <button class="size-btn" onclick="selectSize('34')">34</button>
+                  <button class="size-btn" onclick="selectSize('36')">36</button>
+                </div>
+              </div>
+              
+              <div class="selection-group">
+                <label>Color:</label>
+                <div class="color-options" id="modalColorOptions">
+                  <button class="color-btn" onclick="selectColor('Dark Blue')" style="background-color: #1e3a8a" title="Dark Blue"></button>
+                  <button class="color-btn" onclick="selectColor('Light Blue')" style="background-color: #3b82f6" title="Light Blue"></button>
+                  <button class="color-btn" onclick="selectColor('Black')" style="background-color: #000000" title="Black"></button>
+                </div>
+              </div>
+              
+              <div class="quantity-group">
+                <label>Quantity:</label>
+                <div class="quantity-controls">
+                  <button type="button" onclick="decreaseModalQuantity()">-</button>
+                  <span id="modalQuantity">1</span>
+                  <button type="button" onclick="increaseModalQuantity()">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="add-to-cart-modal-btn" onclick="addToCartFromModal()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      document.body.insertAdjacentHTML('beforeend', modalHTML);
+      document.getElementById('sizeColorModal').style.display = 'block';
+    }
+
+    function closeSizeColorModal() {
+      const modal = document.getElementById('sizeColorModal');
+      if (modal) {
+        modal.remove();
+      }
+    }
+
+    let selectedSize = null;
+    let selectedColor = null;
+    let modalQuantity = 1;
+
+    function selectSize(size) {
+      selectedSize = size;
+      document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('selected'));
+      event.target.classList.add('selected');
+    }
+
+    function selectColor(color) {
+      selectedColor = color;
+      document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('selected'));
+      event.target.classList.add('selected');
+    }
+
+    function increaseModalQuantity() {
+      if (modalQuantity < 10) {
+        modalQuantity++;
+        document.getElementById('modalQuantity').textContent = modalQuantity;
+      }
+    }
+
+    function decreaseModalQuantity() {
+      if (modalQuantity > 1) {
+        modalQuantity--;
+        document.getElementById('modalQuantity').textContent = modalQuantity;
+      }
+    }
+
+    async function addToCartFromModal() {
+      if (!selectedSize || !selectedColor) {
+        showMessage('Please select both size and color', 'error');
+        return;
+      }
+      
+      try {
+        const sessionId = getSessionId();
+        const response = await fetch(`http://localhost:5000/api/cart/${sessionId}/add`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            product_id: '2',
+            quantity: modalQuantity,
+            color: selectedColor,
+            size: selectedSize
+          })
+        });
+        
+        if (response.ok) {
+          await updateCartCount();
+          showMessage(`Added ${modalQuantity} ${selectedColor} ${selectedSize} Jeans to cart!`, 'success');
+          closeSizeColorModal();
+        } else {
+          throw new Error('Failed to add to cart');
+        }
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        // Fallback: add to localStorage
+        addToLocalCart({
+          product_id: '2',
+          name: 'Slim Fit Denim Jeans',
+          brand: 'Urban Denim Co.',
+          price: 35600,
+          image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&h=800&fit=crop',
+          quantity: modalQuantity,
+          color: selectedColor,
+          size: selectedSize
+        });
+        await updateCartCount();
+        showMessage(`Added ${modalQuantity} ${selectedColor} ${selectedSize} Jeans to cart!`, 'success');
+        closeSizeColorModal();
+      }
+    }
+
+    function addToLocalCart(item) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const itemKey = `${item.product_id}_${item.color}_${item.size}`;
+      const existingItem = cart.find(cartItem => cartItem.item_key === itemKey);
+      
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        cart.push({
+          ...item,
+          item_key: itemKey
+        });
+      }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function viewSellerShop() {
+      window.location.href = 'shop.html?brand=Urban Denim Co.';
+    }
+
+    function getSessionId() {
+      let sessionId = localStorage.getItem('sessionId');
+      if (!sessionId) {
+        sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('sessionId', sessionId);
+      }
+      return sessionId;
+    }
+
+    // Update cart count
+    async function updateCartCount() {
+      try {
+        const sessionId = getSessionId();
+        const response = await fetch(`http://localhost:5000/api/cart/${sessionId}`);
+        if (response.ok) {
+          const cart = await response.json();
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          const cartCountElements = document.querySelectorAll('.cart-count');
+          cartCountElements.forEach(el => el.textContent = totalItems);
+        }
+      } catch (error) {
+        console.error('Error updating cart count:', error);
+        // Fallback: try to get from localStorage
+        const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const totalItems = localCart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartCountElements = document.querySelectorAll('.cart-count');
+        cartCountElements.forEach(el => el.textContent = totalItems);
+      }
+    }
+
+    // Custom message function
+    function showMessage(text, type = 'info') {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `custom-message ${type}`;
+      messageDiv.textContent = text;
+      
+      document.body.appendChild(messageDiv);
+      
+      setTimeout(() => {
+        messageDiv.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        messageDiv.classList.remove('show');
+        setTimeout(() => {
+          document.body.removeChild(messageDiv);
+        }, 300);
+      }, 3000);
+    }
+
+    // Mobile navigation
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      document.getElementById('mainNav').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

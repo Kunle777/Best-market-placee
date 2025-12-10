@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up - Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">2</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auth Container -->
+  <div class="auth-container">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <!-- Login Form -->
+        <div class="auth-form" id="loginForm">
+          <div class="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your account to continue shopping</p>
+          </div>
+
+          <form id="loginFormElement">
+            <div class="form-group">
+              <label for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" name="password" required>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="rememberMe">
+                <span class="checkmark"></span>
+                Remember me
+              </label>
+              <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="auth-btn">Sign In</button>
+          </form>
+
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+
+          <div class="social-login">
+            <button class="social-btn google-btn">
+              <span class="social-icon">G</span>
+              Continue with Google
+            </button>
+            <button class="social-btn facebook-btn">
+              <span class="social-icon">f</span>
+              Continue with Facebook
+            </button>
+          </div>
+
+          <div class="auth-switch">
+            <p>Don't have an account? <button type="button" onclick="switchToSignup()" class="switch-btn">Sign up</button></p>
+          </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="auth-form hidden" id="signupForm">
+          <div class="auth-header">
+            <h1>Create Account</h1>
+            <p>Join Best Market Place and start shopping premium brands</p>
+          </div>
+
+          <form id="signupFormElement">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signupEmail">Email Address</label>
+              <input type="email" id="signupEmail" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="signupPassword">Password</label>
+              <input type="password" id="signupPassword" name="password" required>
+              <div class="password-requirements">
+                <small>Password must be at least 8 characters long</small>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                <span class="checkmark"></span>
+                I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+              </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="subscribeNewsletter" name="subscribeNewsletter">
+                <span class="checkmark"></span>
+                Subscribe to our newsletter for exclusive offers and updates
+              </label>
+            </div>
+
+            <button type="submit" class="auth-btn">Create Account</button>
+          </form>
+
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+
+          <div class="social-login">
+            <button class="social-btn google-btn">
+              <span class="social-icon">G</span>
+              Sign up with Google
+            </button>
+            <button class="social-btn facebook-btn">
+              <span class="social-icon">f</span>
+              Sign up with Facebook
+            </button>
+          </div>
+
+          <div class="auth-switch">
+            <p>Already have an account? <button type="button" onclick="switchToLogin()" class="switch-btn">Sign in</button></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="auth-benefits">
+        <h2>Why Join Best Market Place?</h2>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">🛍️</div>
+            <div class="benefit-content">
+              <h3>Exclusive Access</h3>
+              <p>Get early access to new collections and member-only sales</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">🚚</div>
+            <div class="benefit-content">
+              <h3>Free Shipping</h3>
+              <p>Enjoy free shipping on orders over ₦50,000</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">💳</div>
+            <div class="benefit-content">
+              <h3>Secure Checkout</h3>
+              <p>Fast and secure checkout with multiple payment options</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">🎁</div>
+            <div class="benefit-content">
+              <h3>Rewards Program</h3>
+              <p>Earn points on every purchase and redeem for discounts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgotPasswordModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Reset Password</h3>
+        <button class="close-btn" onclick="closeForgotPassword()">&times;</button>
+      </div>
+      <form id="forgotPasswordForm">
+        <div class="form-group">
+          <label for="resetEmail">Email Address</label>
+          <input type="email" id="resetEmail" name="email" required placeholder="Enter your email address">
+        </div>
+        <p class="reset-info">We'll send you a link to reset your password.</p>
+        <button type="submit" class="auth-btn">Send Reset Link</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .reset-info {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <script src="api.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

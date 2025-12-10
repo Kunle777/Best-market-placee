@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="#" class="active">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">2</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > <span>Shop</span>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Shop All Products</h1>
+      <p>Discover our curated collection of premium fashion brands</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="shop-container">
+    <div class="shop-layout">
+      <!-- Desktop Filters Sidebar -->
+      <aside class="filters-sidebar">
+        <div class="filters-card">
+          <h2>Filters</h2>
+          
+          <!-- Search -->
+          <div class="filter-section">
+            <label class="filter-label">Search Products</label>
+            <div class="search-input-container">
+              <input type="text" id="searchInput" placeholder="Search by name or brand..." class="search-input">
+              <span class="search-icon">🔍</span>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="filter-section">
+            <label class="filter-label">Categories</label>
+            <div class="checkbox-group" id="categoriesFilter">
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-tshirts" value="T-Shirts">
+                <label for="cat-tshirts">T-Shirts</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-jackets" value="Jackets">
+                <label for="cat-jackets">Jackets</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-pants" value="Pants">
+                <label for="cat-pants">Pants</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-shoes" value="Shoes">
+                <label for="cat-shoes">Shoes</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-hoodies" value="Hoodies">
+                <label for="cat-hoodies">Hoodies</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="cat-dresses" value="Dresses">
+                <label for="cat-dresses">Dresses</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div class="filter-section">
+            <label class="filter-label">Price Range: ₦<span id="minPrice">0</span> - ₦<span id="maxPrice">200,000</span></label>
+            <div class="price-slider">
+              <input type="range" id="priceMin" min="0" max="200000" step="1000" value="0" class="slider">
+              <input type="range" id="priceMax" min="0" max="200000" step="1000" value="200000" class="slider">
+            </div>
+          </div>
+
+          <!-- Clear Filters -->
+          <button class="clear-filters-btn" id="clearFilters">
+            ✕ Clear All Filters
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="shop-main">
+        <!-- Toolbar -->
+        <div class="shop-toolbar">
+          <div class="toolbar-left">
+            <span class="product-count" id="productCount">9 products</span>
+            <div class="active-filters" id="activeFilters"></div>
+          </div>
+
+          <div class="toolbar-right">
+            <!-- Mobile Filter Button -->
+            <button class="mobile-filter-btn" id="mobileFilterBtn">
+              ⚙️ Filters
+            </button>
+
+            <!-- Sort -->
+            <select class="sort-select" id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Products will be loaded dynamically from API -->
+          <div class="loading-placeholder">
+            <p>Loading products...</p>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+          <div class="no-results-content">
+            <div class="no-results-icon">🔍</div>
+            <h3>No products found</h3>
+            <p>Try adjusting your filters or search terms</p>
+            <button class="btn-clear" onclick="clearAllFilters()">Clear All Filters</button>
+          </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more">
+          <button class="load-more-btn" id="loadMoreBtn">Load More Products</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile Filter Modal -->
+  <div class="mobile-filter-modal" id="mobileFilterModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Filters</h3>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Search -->
+        <div class="filter-section">
+          <label class="filter-label">Search Products</label>
+          <div class="search-input-container">
+            <input type="text" id="mobileSearchInput" placeholder="Search by name or brand..." class="search-input">
+            <span class="search-icon">🔍</span>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="filter-section">
+          <label class="filter-label">Categories</label>
+          <div class="checkbox-group" id="mobileCategoriesFilter">
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-tshirts" value="T-Shirts">
+              <label for="mobile-cat-tshirts">T-Shirts</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-jackets" value="Jackets">
+              <label for="mobile-cat-jackets">Jackets</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-pants" value="Pants">
+              <label for="mobile-cat-pants">Pants</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-shoes" value="Shoes">
+              <label for="mobile-cat-shoes">Shoes</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-hoodies" value="Hoodies">
+              <label for="mobile-cat-hoodies">Hoodies</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="mobile-cat-dresses" value="Dresses">
+              <label for="mobile-cat-dresses">Dresses</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-section">
+          <label class="filter-label">Price Range: ₦<span id="mobileMinPrice">0</span> - ₦<span id="mobileMaxPrice">200,000</span></label>
+          <div class="price-slider">
+            <input type="range" id="mobilePriceMin" min="0" max="200000" step="1000" value="0" class="slider">
+            <input type="range" id="mobilePriceMax" min="0" max="200000" step="1000" value="200000" class="slider">
+          </div>
+        </div>
+
+        <!-- Apply Filters Button -->
+        <div class="modal-actions">
+          <button class="apply-filters-btn" id="applyFilters">Apply Filters</button>
+          <button class="clear-filters-btn" id="mobileClearFilters">Clear All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Selection Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalProductName">Select Options</h3>
+        <button class="modal-close" id="modalCloseBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="product-preview">
+          <img id="modalProductImage" src="" alt="Product">
+          <div class="product-info">
+            <p id="modalProductBrand"></p>
+            <p id="modalProductPrice"></p>
+          </div>
+        </div>
+        
+        <div class="selection-group">
+          <label>Size:</label>
+          <div class="size-options" id="sizeOptions">
+            <!-- Size options will be populated here -->
+          </div>
+        </div>
+        
+        <div class="selection-group">
+          <label>Color:</label>
+          <div class="color-options" id="colorOptions">
+            <!-- Color options will be populated here -->
+          </div>
+        </div>
+        
+        <div class="quantity-group">
+          <label>Quantity:</label>
+          <div class="quantity-controls">
+            <button type="button" id="decreaseQty">-</button>
+            <span id="quantity">1</span>
+            <button type="button" id="increaseQty">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="add-to-cart-modal-btn" id="addToCartModalBtn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="api.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>

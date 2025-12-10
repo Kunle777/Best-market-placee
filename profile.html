@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">0</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > <span>My Profile</span>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <div class="profile-container">
+    <div class="container">
+      <div class="profile-header">
+        <h1>My Profile</h1>
+        <p>Manage your account information and view your order history</p>
+      </div>
+
+      <div class="profile-layout">
+        <!-- Profile Info -->
+        <div class="profile-info">
+          <div class="profile-card">
+            <div class="profile-avatar">
+              <div class="avatar-circle">
+                <span id="userInitials">?</span>
+              </div>
+            </div>
+            <div class="profile-details">
+              <h2 id="userName">Loading...</h2>
+              <p id="userEmail">Loading...</p>
+              <p id="userPhone">+234 123 456 7890</p>
+            </div>
+            <button class="edit-profile-btn" onclick="editProfile()">Edit Profile</button>
+            <button class="change-password-btn" onclick="changePassword()">Change Password</button>
+            <a href="orders.html" class="btn primary" style="margin-top: 10px; text-decoration: none; display: inline-block; text-align: center;">My Orders</a>
+            <a href="payment-history.html" class="btn outline" style="margin-top: 10px; text-decoration: none; display: inline-block; text-align: center;">Payment History</a>
+          </div>
+
+          <!-- Quick Stats -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" id="totalOrders">0</div>
+              <div class="stat-label">Total Orders</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="totalSpent">₦0</div>
+              <div class="stat-label">Total Spent</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" id="memberSince">2024</div>
+              <div class="stat-label">Member Since</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="transaction-history">
+          <div class="history-header">
+            <h3>Transaction History</h3>
+            <div class="filter-controls">
+              <select id="statusFilter" onchange="filterTransactions()">
+                <option value="">All Status</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="transactions-list" id="transactionsList">
+            <!-- Transactions will be loaded here -->
+          </div>
+
+          <div class="no-transactions" id="noTransactions" style="display: none;">
+            <div class="empty-icon">📦</div>
+            <h3>No transactions yet</h3>
+            <p>Start shopping to see your order history here</p>
+            <a href="shop.html" class="btn primary">Start Shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="profile-modal" id="profileModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="modal-close" onclick="closeProfileModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="profileForm">
+          <div class="form-group">
+            <label for="editName">Full Name</label>
+            <input type="text" id="editName" required>
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email Address</label>
+            <input type="email" id="editEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="editPhone">Phone Number</label>
+            <input type="tel" id="editPhone" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn outline" onclick="closeProfileModal()">Cancel</button>
+        <button class="btn primary" onclick="saveProfile()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="profile-modal" id="passwordModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Change Password</h3>
+        <button class="modal-close" onclick="closePasswordModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="passwordForm">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <input type="password" id="confirmNewPassword" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn outline" onclick="closePasswordModal()">Cancel</button>
+        <button class="btn primary" onclick="savePassword()">Change Password</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Best Market Place</h4>
+        <p>Your ultimate destination for the best clothing brands. Shop the latest fashion trends from trusted brands all in one place.</p>
+        <div class="social">
+          <a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Customer Service</h5>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Size Guide</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <small>© 2025 Best Market Place. All rights reserved.</small>
+      <nav class="legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize profile
+    document.addEventListener('DOMContentLoaded', function() {
+      loadUserProfile();
+      loadTransactions();
+      updateCartCount();
+      
+      // Mobile navigation
+      document.getElementById('mobileToggle').addEventListener('click', function() {
+        document.getElementById('mainNav').classList.toggle('show');
+      });
+    });
+
+    // Load user profile from localStorage
+    function loadUserProfile() {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      
+      if (!user) {
+        // Redirect to login if no user
+        window.location.href = 'auth.html';
+        return;
+      }
+      
+      // Extract phone from name if it contains phone number
+      let phone = '+234 123 456 7890'; // default
+      let displayName = user.name;
+      
+      // Check if name contains phone pattern
+      const phoneMatch = user.name.match(/(\+?\d{3,4}\s?\d{3}\s?\d{3}\s?\d{4})/); 
+      if (phoneMatch) {
+        phone = phoneMatch[1];
+        displayName = user.name.replace(phoneMatch[1], '').trim();
+      }
+      
+      document.getElementById('userName').textContent = displayName;
+      document.getElementById('userEmail').textContent = user.email;
+      document.getElementById('userPhone').textContent = phone;
+      document.getElementById('userInitials').textContent = displayName.split(' ').map(n => n[0]).join('').toUpperCase();
+      document.getElementById('memberSince').textContent = '2024';
+      
+      // Sample stats (would come from backend in real app)
+      document.getElementById('totalOrders').textContent = '0';
+      document.getElementById('totalSpent').textContent = '₦0';
+    }
+
+    // Load transactions (empty for now)
+    function loadTransactions() {
+      const container = document.getElementById('transactionsList');
+      const noTransactions = document.getElementById('noTransactions');
+      
+      // Show no transactions message
+      container.style.display = 'none';
+      noTransactions.style.display = 'block';
+    }
+
+    // Filter transactions (placeholder)
+    function filterTransactions() {
+      // No transactions to filter yet
+    }
+
+    // Edit profile
+    function editProfile() {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (!user) return;
+      
+      document.getElementById('editName').value = user.name;
+      document.getElementById('editEmail').value = user.email;
+      document.getElementById('editPhone').value = document.getElementById('userPhone').textContent;
+      document.getElementById('profileModal').style.display = 'block';
+    }
+
+    // Close profile modal
+    function closeProfileModal() {
+      document.getElementById('profileModal').style.display = 'none';
+    }
+
+    // Save profile
+    function saveProfile() {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (!user) return;
+      
+      user.name = document.getElementById('editName').value;
+      user.email = document.getElementById('editEmail').value;
+      
+      localStorage.setItem('user', JSON.stringify(user));
+      
+      loadUserProfile();
+      closeProfileModal();
+      showMessage('Profile updated successfully!', 'success');
+    }
+
+    // Change password
+    function changePassword() {
+      document.getElementById('passwordModal').style.display = 'block';
+    }
+
+    // Close password modal
+    function closePasswordModal() {
+      document.getElementById('passwordModal').style.display = 'none';
+      document.getElementById('passwordForm').reset();
+    }
+
+    // Save password
+    async function savePassword() {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (!user) return;
+      
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmNewPassword').value;
+      
+      if (newPassword !== confirmPassword) {
+        showMessage('New passwords do not match', 'error');
+        return;
+      }
+      
+      if (newPassword.length < 8) {
+        showMessage('Password must be at least 8 characters long', 'error');
+        return;
+      }
+      
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/change-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: user.email,
+            currentPassword,
+            newPassword
+          })
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+          closePasswordModal();
+          showMessage('Password changed successfully!', 'success');
+        } else {
+          showMessage(result.error || 'Failed to change password', 'error');
+        }
+      } catch (error) {
+        showMessage('Error changing password', 'error');
+      }
+    }
+
+    // Update cart count
+    async function updateCartCount() {
+      try {
+        const sessionId = getSessionId();
+        const response = await fetch(`http://localhost:5000/api/cart/${sessionId}`);
+        if (response.ok) {
+          const cart = await response.json();
+          const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+          document.querySelector('.cart-count').textContent = totalItems;
+        }
+      } catch (error) {
+        const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const totalItems = localCart.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelector('.cart-count').textContent = totalItems;
+      }
+    }
+
+    function getSessionId() {
+      let sessionId = localStorage.getItem('sessionId');
+      if (!sessionId) {
+        sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('sessionId', sessionId);
+      }
+      return sessionId;
+    }
+
+    // Show message
+    function showMessage(text, type = 'info') {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `custom-message ${type}`;
+      messageDiv.textContent = text;
+      
+      document.body.appendChild(messageDiv);
+      
+      setTimeout(() => {
+        messageDiv.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        messageDiv.classList.remove('show');
+        setTimeout(() => {
+          if (document.body.contains(messageDiv)) {
+            document.body.removeChild(messageDiv);
+          }
+        }, 300);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

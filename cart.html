@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.1">
+  <link rel="stylesheet" href="user-styles.css?v=1.1">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <input type="search" placeholder="Search products..." aria-label="Search">
+          <button class="search-btn">🔍</button>
+        </div>
+        
+
+        
+        <a href="cart.html" class="icon-btn cart-btn" aria-label="Cart">
+          🛒<span class="cart-count">0</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > <span>Shopping Cart</span>
+    </div>
+  </div>
+
+  <!-- Cart Content -->
+  <div class="cart-container">
+    <div class="container">
+      <div class="cart-header">
+        <h1>Shopping Cart</h1>
+        <p class="cart-item-count">0 items in your cart</p>
+      </div>
+
+      <div class="cart-layout" id="cartLayout">
+        <!-- Cart Items -->
+        <div class="cart-items">
+          <!-- Cart items will be loaded dynamically -->
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          
+          <!-- Delivery Address -->
+          <div class="address-section">
+            <label for="deliveryAddress">Delivery Address</label>
+            <div class="address-input">
+              <textarea id="deliveryAddress" placeholder="Enter your full delivery address..." rows="3" onchange="validateAddress()"></textarea>
+            </div>
+            <div class="location-input">
+              <select id="deliveryLocation" onchange="updateShipping()">
+                <option value="">Select city/state</option>
+                <option value="lagos-mainland">Lagos Mainland</option>
+                <option value="lagos-island">Lagos Island</option>
+                <option value="abuja">Abuja</option>
+                <option value="port-harcourt">Port Harcourt</option>
+                <option value="kano">Kano</option>
+                <option value="ibadan">Ibadan</option>
+                <option value="other">Other Cities</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="phone-section" style="margin-bottom: 20px;">
+            <label for="phoneNumber" style="display: block; margin-bottom: 8px; font-weight: 600; color: #374151;">Phone Number *</label>
+            <input type="tel" id="phoneNumber" placeholder="e.g. 08012345678" required style="width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; transition: border-color 0.3s ease;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e5e7eb'">
+          </div>
+
+          <!-- Promo Code -->
+          <div class="promo-section">
+            <label for="promoCode">Promo Code</label>
+            <div class="promo-input">
+              <input type="text" id="promoCode" placeholder="Enter code">
+              <button class="apply-btn" onclick="applyPromo()">Apply</button>
+            </div>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <!-- Price Breakdown -->
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span>Subtotal</span>
+              <span id="subtotal">₦0</span>
+            </div>
+            <div class="price-row">
+              <span>Shipping</span>
+              <span id="shipping">₦0</span>
+            </div>
+            <div class="price-row">
+              <span>Tax (7.5%)</span>
+              <span id="tax">₦0</span>
+            </div>
+          </div>
+
+          <div class="summary-divider"></div>
+
+          <div class="total-row">
+            <span>Total</span>
+            <span id="total">₦0</span>
+          </div>
+
+          <!-- Checkout Buttons -->
+          <div class="checkout-actions">
+            <button class="checkout-btn">
+              🔒 Proceed to Checkout
+            </button>
+            <a href="shop.html" class="continue-shopping">Continue Shopping</a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="trust-item">
+              <span class="trust-icon">🔒</span>
+              <span>Secure checkout</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">💳</span>
+              <span>Multiple payment options</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">↩️</span>
+              <span>Easy returns within 30 days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty Cart (Hidden by default) -->
+      <div class="empty-cart" id="emptyCart" style="display: none;">
+        <div class="empty-cart-content">
+          <div class="empty-icon">🛒</div>
+          <h2>Your cart is empty</h2>
+          <p>Looks like you haven't added any items to your cart yet. Start shopping to fill it up!</p>
+          <div class="empty-actions">
+            <a href="shop.html" class="btn primary">Start Shopping</a>
+            <button class="btn outline">View Wishlist</button>
+          </div>
+          <div class="suggestions">
+            <h3>You might also like</h3>
+            <div class="suggestion-buttons">
+              <a href="shop.html" class="suggestion-btn">New Arrivals</a>
+              <a href="shop.html" class="suggestion-btn">Best Sellers</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // Debug Paystack loading
+    window.addEventListener('load', function() {
+      console.log('🔍 Paystack availability check:', {
+        PaystackPop: !!window.PaystackPop,
+        PaystackPopSetup: !!(window.PaystackPop && window.PaystackPop.setup)
+      });
+    });
+  </script>
+
+  <script>
+    // Validate address
+    function validateAddress() {
+      const address = document.getElementById('deliveryAddress').value.trim();
+      const addressInput = document.getElementById('deliveryAddress');
+      
+      if (address.length < 10) {
+        addressInput.style.borderColor = '#dc3545';
+      } else {
+        addressInput.style.borderColor = '#28a745';
+      }
+    }
+
+    // Update shipping based on location
+    function updateShipping() {
+      const location = document.getElementById('deliveryLocation').value;
+      const shippingElement = document.getElementById('shipping');
+      
+      let shippingCost = 0;
+      
+      switch(location) {
+        case 'lagos-mainland':
+        case 'lagos-island':
+          shippingCost = 2000;
+          break;
+        case 'abuja':
+        case 'port-harcourt':
+          shippingCost = 3000;
+          break;
+        case 'kano':
+        case 'ibadan':
+          shippingCost = 3500;
+          break;
+        case 'other':
+          shippingCost = 4000;
+          break;
+        default:
+          shippingCost = 0;
+      }
+      
+      if (shippingElement) {
+        if (shippingCost === 0) {
+          shippingElement.innerHTML = '<span class="free-badge">Select location</span>';
+        } else {
+          shippingElement.textContent = `₦${shippingCost.toLocaleString()}`;
+        }
+      }
+      
+      // Recalculate total if cart has items
+      if (typeof updateCartDisplay === 'function') {
+        updateCartDisplay();
+      }
+    }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment History - Best Market Place</title>
+  <link rel="stylesheet" href="styles.css?v=1.0">
+  <link rel="stylesheet" href="user-styles.css?v=1.0">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Best Market Place</div>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="brands.html">Brands</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="cart.html" class="icon-btn cart-btn">🛒<span class="cart-count">0</span></a>
+        <a href="profile.html" class="icon-btn">👤</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> > <a href="profile.html">Profile</a> > <span>Payment History</span>
+    </div>
+  </div>
+
+  <!-- Payment History Content -->
+  <div class="payment-history-container">
+    <div class="container">
+      <div class="page-header">
+        <h1>Payment History</h1>
+        <p>View all your past transactions and payment details</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="history-filters">
+        <select id="statusFilter">
+          <option value="">All Payments</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
+          <option value="failed">Failed</option>
+        </select>
+        <input type="date" id="dateFrom" placeholder="From Date">
+        <input type="date" id="dateTo" placeholder="To Date">
+        <button onclick="filterPayments()" class="filter-btn">Filter</button>
+      </div>
+
+      <!-- Payment History List -->
+      <div class="payment-list" id="paymentList">
+        <!-- Payment items will be loaded here -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-history" id="emptyHistory" style="display: none;">
+        <div class="empty-icon">💳</div>
+        <h3>No Payment History</h3>
+        <p>You haven't made any payments yet. Start shopping to see your payment history here!</p>
+        <a href="shop.html" class="btn primary">Start Shopping</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="payment-history.js"></script>
+</body>
+</html>

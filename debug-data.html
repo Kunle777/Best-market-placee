@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Data - Best Market Place</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .data { background: #f5f5f5; padding: 10px; border-radius: 3px; white-space: pre-wrap; }
+        button { padding: 10px 15px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .empty { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Debug Data Viewer</h1>
+    
+    <div class="section">
+        <h2>Current User</h2>
+        <div id="userData" class="data"></div>
+    </div>
+    
+    <div class="section">
+        <h2>User Orders</h2>
+        <div id="ordersData" class="data"></div>
+        <button onclick="addTestOrder()">Add Test Order</button>
+    </div>
+    
+    <div class="section">
+        <h2>Payment History</h2>
+        <div id="paymentData" class="data"></div>
+        <button onclick="addTestPayment()">Add Test Payment</button>
+    </div>
+    
+    <div class="section">
+        <h2>Cart Data</h2>
+        <div id="cartData" class="data"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Actions</h2>
+        <button onclick="clearAllData()">Clear All Data</button>
+        <button onclick="refreshData()">Refresh Data</button>
+    </div>
+
+    <script>
+        function displayData() {
+            // User data
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            document.getElementById('userData').textContent = user ? JSON.stringify(user, null, 2) : 'No user logged in';
+            
+            // Orders data
+            const orders = JSON.parse(localStorage.getItem('userOrders') || '[]');
+            document.getElementById('ordersData').textContent = orders.length > 0 ? JSON.stringify(orders, null, 2) : 'No orders found';
+            
+            // Payment history
+            const payments = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+            document.getElementById('paymentData').textContent = payments.length > 0 ? JSON.stringify(payments, null, 2) : 'No payment history found';
+            
+            // Cart data
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            document.getElementById('cartData').textContent = cart.length > 0 ? JSON.stringify(cart, null, 2) : 'No cart items found';
+        }
+        
+        function addTestOrder() {
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            if (!user) {
+                alert('Please login first to add test order');
+                return;
+            }
+            
+            const testOrder = {
+                id: Date.now(),
+                customer_name: user.name,
+                customer_email: user.email,
+                customer_phone: '+234 801 234 5678',
+                delivery_address: '123 Test Street, Lagos Island, Lagos State',
+                delivery_location: 'Lagos Island',
+                total: 45000,
+                status: 'confirmed',
+                payment_reference: 'BMP_' + Date.now(),
+                created_at: new Date().toISOString(),
+                items: [
+                    {
+                        name: 'Classic White T-Shirt',
+                        brand: 'Premium Basics',
+                        price: 18000,
+                        quantity: 1,
+                        size: 'M',
+                        color: 'White'
+                    },
+                    {
+                        name: 'Slim Fit Denim Jeans',
+                        brand: 'Urban Denim Co.',
+                        price: 27000,
+                        quantity: 1,
+                        size: 'L',
+                        color: 'Dark Blue'
+                    }
+                ]
+            };
+            
+            const orders = JSON.parse(localStorage.getItem('userOrders') || '[]');
+            orders.unshift(testOrder);
+            localStorage.setItem('userOrders', JSON.stringify(orders));
+            
+            displayData();
+            alert('Test order added successfully!');
+        }
+        
+        function addTestPayment() {
+            const user = JSON.parse(localStorage.getItem('user') || 'null');
+            if (!user) {
+                alert('Please login first to add test payment');
+                return;
+            }
+            
+            const testPayment = {
+                reference: 'BMP_' + Date.now(),
+                orderId: Date.now() - 1000,
+                amount: 45000,
+                status: 'completed',
+                date: new Date().toISOString(),
+                paymentMethod: 'Card',
+                customer_phone: '+234 801 234 5678',
+                delivery_address: '123 Test Street, Lagos Island, Lagos State',
+                delivery_location: 'Lagos Island',
+                items: [
+                    {
+                        name: 'Classic White T-Shirt',
+                        brand: 'Premium Basics',
+                        price: 18000,
+                        quantity: 1,
+                        size: 'M',
+                        color: 'White'
+                    },
+                    {
+                        name: 'Slim Fit Denim Jeans',
+                        brand: 'Urban Denim Co.',
+                        price: 27000,
+                        quantity: 1,
+                        size: 'L',
+                        color: 'Dark Blue'
+                    }
+                ]
+            };
+            
+            const payments = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+            payments.unshift(testPayment);
+            localStorage.setItem('paymentHistory', JSON.stringify(payments));
+            
+            displayData();
+            alert('Test payment added successfully!');
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all data?')) {
+                localStorage.removeItem('userOrders');
+                localStorage.removeItem('paymentHistory');
+                localStorage.removeItem('cart');
+                displayData();
+                alert('All data cleared!');
+            }
+        }
+        
+        function refreshData() {
+            displayData();
+        }
+        
+        // Initial load
+        displayData();
+    </script>
+</body>
+</html>
